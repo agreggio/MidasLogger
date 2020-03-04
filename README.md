@@ -17,9 +17,10 @@ The code is used to log different messages throughout an application. We want th
 - Al crear una instancia de FileHandler falta parámetro append ya que si no se informa sobrescribe el archivo. Al colocar en true escribe en el mismo archivo sin borrar lo anterior
 - FileHandler(String pattern, boolean append) throws IOException, SecurityException La documentacion del método informa que puede retornar dos Exception, las mismas no se capturan ni se muestran.
 - Asignar a l = l +"error".. cuando se declaro como null, concatena nullErrorFecha.
-- Al colocar los 3 if consecutivos evaluando el tipo de error y concatenando a la misma variable "l" siempre retornaría una sola cadena con todo concatenado y sin espacios por ejemplo "nullerror 2 de marzo de 2020Mensajewarning 2 de marzo de 2020Mensajemessage 2 de marzo de 2020Mensaje"
+- Al colocar los 3 if consecutivos evaluando el tipo de error y concatenando a la misma variable "l" si la condicion es true para los 3 casos, retornaría una sola cadena con todo concatenado y sin espacios por ejemplo "nullerror 2 de marzo de 2020Mensajewarning 2 de marzo de 2020Mensajemessage 2 de marzo de 2020Mensaje"
 - La variable "l" es declarada, se le asigna una cadena, pero no se utiliza.
 - Sentencia SQL mal formulada faltan atributos y palabra reservada VALUES
+- No se cierran la conexiones tanto la base de datos como el archivo log
 
 ## En el repositorio en cuestion se encuentra el codigo refactorizado
 
