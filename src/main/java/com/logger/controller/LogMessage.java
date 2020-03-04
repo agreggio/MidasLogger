@@ -4,12 +4,12 @@ Es un log de errores
 package com.logger.controller;
 
 import com.logger.model.JobLogger;
-import java.util.logging.Level;
+
 
 
 public class LogMessage {
 
-    public static void LogMessage(String messageText, boolean message, boolean warning, boolean error, JobLogger jobLogger) throws Exception {
+    public static void LogMessage(String messageText, JobLogger jobLogger) throws Exception {
         messageText = messageText.trim();
         
         if (messageText == null || messageText.isEmpty()) {
@@ -20,35 +20,49 @@ public class LogMessage {
             throw new Exception("Invalid configuration");
         }
 
-        if ((!jobLogger.isLogError() && !jobLogger.isLogMessage() && !jobLogger.isLogWarning()) || (!message && !warning && !error)) {
+        if ((!jobLogger.isLogError() && !jobLogger.isLogMessage() && !jobLogger.isLogWarning())) {
             throw new Exception("Error or Warning or Message must be specified");
         }
-
-        if (error && jobLogger.isLogError()) {
-
+        
+        int valueLevel = 0;
+        
+        if (jobLogger.isLogMessage()) {
+            valueLevel = 1;
         }
 
-        if (warning && jobLogger.isLogWarning()) {
-
+        if (jobLogger.isLogError()) {
+            valueLevel = 2;
         }
 
-        if (message && jobLogger.isLogMessage()) {
-
+        if (jobLogger.isLogWarning()) {
+            valueLevel = 3;
         }
 
         if (jobLogger.isLogToFile()) {
             jobLogger.getLogger().addHandler(FileLogger.getFileLogger(jobLogger.getParamsMap())); //Imprime en el archivo
-            jobLogger.getLogger().log(Level.INFO, messageText); //Muestra en la consola "SE REPITE"
         }
 
         if (jobLogger.isLogToConsole()) {
             jobLogger.getLogger().addHandler(ConsoleLogger.getConsoleLogger());
-            jobLogger.getLogger().log(Level.INFO, messageText);
         }
 
         if (jobLogger.isLogToDatabase()) {
-            DbLogger.executeUpdate(jobLogger.getParamsMap(), "insert into Log_Values('" + message + "', " + String.valueOf("") + ")");
+            DbLogger.executeUpdate(jobLogger.getParamsMap(), "insert into Log_Values('" + messageText + "', " + String.valueOf(valueLevel) + ")");
+        }
+        
+        LevelLogger levelLogger = new LevelLogger();
+        
+        if (jobLogger.isLogError()) {
+            levelLogger.Error(messageText, jobLogger);
+        }
+
+        if (jobLogger.isLogWarning()) {
+            levelLogger.Warning(messageText, jobLogger);
+        }
+
+        if (jobLogger.isLogMessage()) {
+            levelLogger.Message(messageText, jobLogger);
         }
     }
-
+    
 }
