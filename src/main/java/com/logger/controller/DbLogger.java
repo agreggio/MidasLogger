@@ -24,12 +24,10 @@ public class DbLogger {
 
 	public static void executeUpdate(Map dbParams, String updateQuery) throws SQLException {
 		try {
-			
 			connectionProps = new Properties();
 			connectionProps.put("user", dbParams.get("user"));
 			connectionProps.put("password", dbParams.get("password"));
-			connection = DriverManager.getConnection("jdbc:" + dbParams.get("dbms") + "://" + dbParams.get("serverName")
-					+ ":" + dbParams.get("portNumber") + "/", connectionProps);
+			connection = DriverManager.getConnection("jdbc:" + dbParams.get("dbms") + "://" + dbParams.get("serverName")+ ":" + dbParams.get("portNumber") + "/", connectionProps);
 			statament = connection.createStatement();
 			statament.executeUpdate(updateQuery);
 		} finally {

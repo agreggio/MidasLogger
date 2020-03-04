@@ -19,44 +19,44 @@ public class BasicApplicationTests {
 
     private final Map<String, String> paramsMap = new HashMap<String, String>();
 
-//    @Test
-//    public void testConsole() {
-//        paramsMap.put("folderLog", "temp");
-//        paramsMap.put("fileLog", "logError.txt");
-//
-//        JobLogger jobLogger = new JobLogger(false, true, true, true, true, false, paramsMap, "MyLog");
-//        try {
-//            LogMessage("testConsole", jobLogger);
-//        } catch (Exception ex) {
-//            Logger.getLogger(BasicApplicationTests.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//    }
-//
-//    @Test
-//    public void testFile() {
-//        paramsMap.put("folderLog", "temp");
-//        paramsMap.put("fileLog", "logError.txt");
-//
-//        JobLogger jobLogger = new JobLogger(true, false, true, true, true, false, paramsMap, "MyLog");
-//        try {
-//            LogMessage("testFile", jobLogger);
-//        } catch (Exception ex) {
-//            Logger.getLogger(BasicApplicationTests.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//    }
-//
-//    @Test
-//    public void testDbLogger() {
-//        paramsMap.put("folderLog", "temp");
-//        paramsMap.put("fileLog", "logError.txt");
-//
-//        JobLogger jobLogger = new JobLogger(false, false, true, true, true, true, paramsMap, "MyLog");
-//        try {
-//            LogMessage("testDbLogger", jobLogger);
-//        } catch (Exception ex) {
-//            Logger.getLogger(BasicApplicationTests.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//    }
+    @Test
+    public void testConsole() {
+        paramsMap.put("folderLog", "temp");
+        paramsMap.put("fileLog", "logError.txt");
+
+        JobLogger jobLogger = new JobLogger(false, true, true, true, true, false, paramsMap, "MyLog");
+        try {
+            LogMessage("testConsole", jobLogger);
+        } catch (Exception ex) {
+            Logger.getLogger(BasicApplicationTests.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @Test
+    public void testFile() {
+        paramsMap.put("folderLog", "temp");
+        paramsMap.put("fileLog", "logError.txt");
+
+        JobLogger jobLogger = new JobLogger(true, false, true, true, true, false, paramsMap, "MyLog");
+        try {
+            LogMessage("testFile", jobLogger);
+        } catch (Exception ex) {
+            Logger.getLogger(BasicApplicationTests.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @Test
+    public void testDbLogger() {
+        paramsMap.put("folderLog", "temp");
+        paramsMap.put("fileLog", "logError.txt");
+
+        JobLogger jobLogger = new JobLogger(false, false, true, true, true, true, paramsMap, "MyLog");
+        try {
+            LogMessage("testDbLogger", jobLogger);
+        } catch (Exception ex) {
+            Logger.getLogger(BasicApplicationTests.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 
     @Test
     public void testAll() {
