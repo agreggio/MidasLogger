@@ -4,20 +4,15 @@ Es un log de errores
 package com.logger.controller;
 
 import com.logger.model.JobLogger;
-import com.logger.utils.Path;
-import java.io.File;
-import java.util.logging.ConsoleHandler;
-import java.util.logging.FileHandler;
 import java.util.logging.Level;
-import java.util.logging.SimpleFormatter;
+
 
 public class LogMessage {
 
     public static void LogMessage(String messageText, boolean message, boolean warning, boolean error, JobLogger jobLogger) throws Exception {
         messageText = messageText.trim();
-
-        //anidar los if para evitar evaluar todas las condiciones
-        if (messageText == null || messageText.length() == 0) {
+        
+        if (messageText == null || messageText.isEmpty()) {
             return;
         }
         // si no tiene ninguna de las 3 configuraciones arroja la exceotion, no deberia ser una exepcion ya que no es un error
