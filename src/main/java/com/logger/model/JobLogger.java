@@ -22,7 +22,7 @@ import java.util.logging.Logger;
 	private static Logger logger;
 
 
-    public JobLogger(boolean logToFile, boolean logToConsole, boolean logMessage, boolean logWarning, boolean logError, boolean logToDatabase, Map paramsMap, String nameLogger) {
+    public JobLogger(boolean logToFile, boolean logToConsole, boolean logToDatabase, boolean logMessage, boolean logWarning, boolean logError, Map paramsMap, String nameLogger) {
         this.logToFile = logToFile;
         this.logToConsole = logToConsole;
         this.logMessage = logMessage;

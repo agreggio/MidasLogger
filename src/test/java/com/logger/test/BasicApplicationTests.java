@@ -1,7 +1,5 @@
 package com.logger.test;
 
-
-
 import static com.logger.controller.LogMessage.LogMessage;
 import com.logger.model.JobLogger;
 import java.util.HashMap;
@@ -25,7 +23,7 @@ public class BasicApplicationTests {
         paramsMap.put("folderLog", "temp");
         paramsMap.put("fileLog", "logError.txt");
 
-        jobLogger = new JobLogger(false, true, true, true, true, false, paramsMap, "MyLog");
+       jobLogger = new JobLogger(false, true, false, true, true, true, paramsMap, "MyLog");
         try {
             LogMessage("testConsole", jobLogger);
         } catch (Exception ex) {
@@ -38,7 +36,7 @@ public class BasicApplicationTests {
         paramsMap.put("folderLog", "temp");
         paramsMap.put("fileLog", "logError.txt");
 
-        jobLogger = new JobLogger(true, false, false, true, false, false, paramsMap, "MyLog");
+        jobLogger = new JobLogger(true, false, false, false, true, false, paramsMap, "MyLog");
         try {
             LogMessage("testFile", jobLogger);
         } catch (Exception ex) {
