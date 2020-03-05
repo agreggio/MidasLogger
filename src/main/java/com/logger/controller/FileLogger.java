@@ -8,7 +8,6 @@ package com.logger.controller;
 import com.logger.utils.Path;
 import java.io.File;
 import java.io.IOException;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.FileHandler;
 import java.util.logging.SimpleFormatter;

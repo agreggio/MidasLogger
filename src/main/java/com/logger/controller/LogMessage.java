@@ -47,7 +47,7 @@ public class LogMessage {
         }
 
         if (jobLogger.isLogToDatabase()) {
-            DbLogger.executeUpdate(jobLogger.getParamsMap(), "insert into Log_Values('" + messageText + "', " + String.valueOf(valueLevel) + ")");
+            DbLogger.executeUpdate(jobLogger.getParamsMap(), "INSERT INTO Log_Values (Message,ValueLevel) VALUES ("+messageText+","+String.valueOf(valueLevel)+");");
         }
         
         LevelLogger levelLogger = new LevelLogger();
