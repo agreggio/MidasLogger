@@ -15,7 +15,7 @@ public class LogMessage {
         if (messageText == null || messageText.isEmpty()) {
             return;
         }
-        // si no tiene ninguna de las 3 configuraciones arroja la exceotion, no deberia ser una exepcion ya que no es un error
+      
         if (!jobLogger.isLogToConsole() && !jobLogger.isLogToFile() && !jobLogger.isLogToDatabase()) {
             throw new Exception("Invalid configuration");
         }
